@@ -1,4 +1,9 @@
 #### psawsdevgs
+######57 Elastic Beanstalk
+Diff between cloudformation and elastic beanstalk  
+CF: only provisions resources  
+EB: provisions resources and runs your app
+
 ######58 Deploying app Baenstalk
 worker env: simple queue service  
 web server env: web app  
