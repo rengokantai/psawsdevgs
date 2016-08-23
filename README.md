@@ -42,3 +42,6 @@ path pattern:
 ke/*
 ```
 redirect http to https, Only GET and POST
+
+######66 Configuring a redis cluster
+Elasticcache->cache subnet group->
