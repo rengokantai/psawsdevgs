@@ -35,3 +35,10 @@ AWSELB
 appname
 ```
 Forward query strings -> Yes
+######64 Configuring a cloudfront dist
+Behavior->create behavior  
+path pattern:
+```
+ke/*
+```
+redirect http to https, Only GET and POST
