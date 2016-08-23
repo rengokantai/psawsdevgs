@@ -21,3 +21,9 @@ select app->left sidebar(logs)->Request logs->last 100 lines
 
 Change node.js version for AMI (from v4->v6)
 left sidebar(configuration)->software configuration->change node version->apply
+######63 Edging your app
+Step2 Create distributions  
+HTTP Port 80  
+HTTPS Port 443  
+Viewer protocol policy -> Redirect HTTP to HTTPS  
+Allowed HTTP Methods->GET...DELETE
