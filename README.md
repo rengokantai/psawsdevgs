@@ -26,4 +26,12 @@ Step2 Create distributions
 HTTP Port 80  
 HTTPS Port 443  
 Viewer protocol policy -> Redirect HTTP to HTTPS  
-Allowed HTTP Methods->GET...DELETE
+Allowed HTTP Methods->GET...DELETE  
+Object caching(customize): MinimumTTL: 10  
+(How long cloudfront will respond to request with its cached content before checking with the origin again)  
+We need forward cookies because our node app is using cookie to log in, and elastic beanstalk lb is using cookie for server stickness(whitelist)
+```
+AWSELB
+appname
+```
+Forward query strings -> Yes
