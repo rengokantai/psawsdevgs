@@ -1,4 +1,39 @@
 #### psawsdevgs
+######36 S3 ov
+Object Key: Folder Namw/Filename
+######38 s3 command
+```
+aws s3 cp local s3://bucket/folder --recursive --exclude "patt"
+```
+
+######39 Connecting S3 nodejs
+```
+const AWS = require('aws-sdk');
+const s3 =new AWS.S3();
+
+module.exports.save = (name,data,cb)=>{
+  let params = {
+    Bucket:'',
+    Key:`${name}.png`,
+    Body:new Buffer(data,'base64'),
+    ContentEncoding: 'base64',
+    COntentType: 'image/png'
+  }
+  s3.putObject(params,(err,data)=>{
+    cb(err,`//s3../bktname/${params.key}`);
+  }
+}
+```
+use
+```
+const s3Store = require('./imageS3');
+function saveImage(name,base64String,cb){
+  let id = base64String.split('data:image/png;base64,')[1];
+  s3Store.save(name,id,cb);
+}
+module.exports.saveImage = saveImage;
+```
+
 ######57 Elastic Beanstalk
 Diff between cloudformation and elastic beanstalk  
 CF: only provisions resources  
