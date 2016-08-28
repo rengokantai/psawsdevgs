@@ -33,7 +33,27 @@ function saveImage(name,base64String,cb){
 }
 module.exports.saveImage = saveImage;
 ```
+######40 s3 cors
+Add CORS Configuration->
+```
+<CORSConfiguration>
+<CORSRule>
+  <AllowedOrigin>*
+  <AllowedMethod>GET
+  <MaxAgeSeconds>3000
+  <AllowedHeader>Authorization
+</CORSRule>
+</CORSConfiguration>
+```
 
+
+######41 Access S3 with EC2
+EC2->launch config->create launch config->select customized ami->ser user data, (As text)
+```
+#! /bin/bash
+npm start
+```
+Then IPaddress type ->(Assign a public ip to every instance)
 ######57 Elastic Beanstalk
 Diff between cloudformation and elastic beanstalk  
 CF: only provisions resources  
