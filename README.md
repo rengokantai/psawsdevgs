@@ -44,4 +44,6 @@ ke/*
 redirect http to https, Only GET and POST
 
 ######66 Configuring a redis cluster
-Elasticcache->cache subnet group->
+first, create sg, source = custom from Ec2 sg in vpc.  
+Elasticcache->cache subnet group-> create cache subnet group:select vpc, add 2 subnets  
+then cache clusters->..->select subnet group, select sg
