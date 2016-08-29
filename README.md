@@ -54,6 +54,28 @@ EC2->launch config->create launch config->select customized ami->ser user data, 
 npm start
 ```
 Then IPaddress type ->(Assign a public ip to every instance)
+
+
+
+######44 RDS overview
+RDS read replica  
+- non prod copy of db
+- Eventual consistency with source
+- useful for unning queries on data
+- will not be used as failover! only for non-prod usage
+######48
+```
+const pgClient = new sequelize(dbname,user,pass,{
+  host:host,
+  dialect:'postgres'
+});
+const tbname = pgClienct.define('tb',{
+  id:{type:Sequelize.STRING,primaryKey:true},
+  img;{type:Sequalize.STRING}
+});
+tbname.sync().then(()=>{})
+```
+
 ######57 Elastic Beanstalk
 Diff between cloudformation and elastic beanstalk  
 CF: only provisions resources  
