@@ -76,6 +76,39 @@ const tbname = pgClienct.define('tb',{
 tbname.sync().then(()=>{})
 ```
 
+######49 DynamoDB
+provisioned throughput capacity  
+read/wrote operations per second provisioned for dynamodb table
+######50 RDS vs dynamo
+d: storage flexibility  
+r: query flexibility
+######52 connect dynamodb (requires aws sdk)
+```
+const AWS = require('aws-sdk');
+AWS.config.update({region:'us-west-2'});
+
+const dynamodb=new AWS.DynamoDB();
+
+function putItem (tb,item,cb){
+  let params = {
+    TableName:tb,
+    Item:{}
+  };
+  
+  for (let k of Object.keys(item)){
+    let val;
+    if(typeof item[k]==='string'){
+      val = {S:item[k]}
+    }else if(typeof item[k]==='number'){
+      val = {N:''+item[k]};
+    }else if(typeof item[k] instanceof Array){
+      val = {SS:item[k]};
+    }
+    params.Item[k]=val
+  }
+  dynamodb.putItem(param,cb);
+}
+```
 ######57 Elastic Beanstalk
 Diff between cloudformation and elastic beanstalk  
 CF: only provisions resources  
