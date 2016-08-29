@@ -1,4 +1,11 @@
 #### psawsdevgs
+
+######31 Load b
+Add TCP 80 in sg for lb.  
+2:38 Enable instance stickness  
+A user should connect same instance in next request or they may lost session
+######32
+edit sg for vpc: inboud = lb sg
 ######36 S3 ov
 Object Key: Folder Namw/Filename
 ######38 s3 command
