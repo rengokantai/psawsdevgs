@@ -106,7 +106,33 @@ function putItem (tb,item,cb){
     }
     params.Item[k]=val
   }
-  dynamodb.putItem(param,cb);
+  dynamodb.putItem(params,cb);
+}
+
+function getAllItems(tb,cb){
+  let params ={TableName:tb}
+  dynamodb.scan(params,cb);
+}
+
+function getItem(tb,idName,id,cb){
+  let params ={
+    TableName:tb,
+    Key:{}
+  };
+  params.Key[idName]={S:id};
+  dynamodb.getItem(params,cb);
+}
+module.exports.putItem = putItem;
+module.exports.getAllItems = getAllItems;
+module.exports.getItem = getItem;
+```
+
+impl:
+```
+function dynamoItemToToppings(items){
+  return items.map((item)=>{
+    return new Topping(item.id.S,item.name.S,+item.order.N);
+  })
 }
 ```
 ######57 Elastic Beanstalk
